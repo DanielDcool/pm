@@ -1,7 +1,6 @@
 package com.cn.daniel;
 
 
-import java.util.Map;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
@@ -37,7 +36,7 @@ public class Application {
        //增加视图  
                 resolver.setViewClass(MyFreemarkerView.class);  
                 //添加自定义解析器  
-                Map map = resolver.getAttributesMap();  
+               // Map<String, Object> map = resolver.getAttributesMap();  
             }  
         };  
     } 
