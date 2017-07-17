@@ -9,11 +9,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 		<!-- bootstrap & fontawesome -->
-		<link rel="stylesheet" href="assets/css/bootstrap.css" />
-	
+		<link rel="stylesheet" href="aceadmin/assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="aceadmin/components/font-awesome/css/font-awesome.css" />
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="aceadmin/assets/css/ace-fonts.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="aceadmin/assets/css/ace.css" />
+		<link rel="stylesheet" href="aceadmin/assets/css/ace-rtl.css" />
+		
+		<!-- 项目自定义css -->
+		<link rel="stylesheet" href="css/main.css" />
 	</head>
 
-	<body class="login-layout light-login">${base}
+	<body class="login-layout light-login">
 		<div class="main-container">
 			<div class="main-content">
 				<div class="row">
@@ -40,40 +50,23 @@
 											</h4>
 
 											<div class="space-6"></div>
-
-											<form action="login" method="post">
-												<fieldset>
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control username" placeholder="Username" name="username"/>
-															<i class="ace-icon fa fa-user"></i>
-														</span>
-													</label>
-
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control password" placeholder="Password" name="password"/>
-															<i class="ace-icon fa fa-lock"></i>
-														</span>
-													</label>
-
-													<div class="space"></div>
-													<div class="clearfix">
-														<label class="inline">
-															<input type="checkbox" class="ace" id="rememberMe"/>
-															<span class="lbl"> Remember Me</span>
-														</label>
-
-														<button type="button" id="login" class="width-35 pull-right btn btn-sm btn-primary">
-															<i class="ace-icon fa fa-key"></i>
-															<span class="bigger-110">Login</span>
-														</button>
-													</div>
-
-													<div class="space-4"></div>
-													 <div class="error"><span>+</span></div>
-												</fieldset>
-											</form>
+											<form name="form"  action="/login" method="POST"> 
+                <div class="form-group">
+                 <#if msg??><p class="error-msg">${msg}</p></#if>
+                    <label for="username">账号</label>
+                    <input type="text" class="form-control" name="username" value="" placeholder="账号" />
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" class="form-control" name="password" placeholder="密码" />
+                </div>
+                <input type="submit" id="login" value="Login" class="btn btn-primary" />
+            </form>
+											
+											
+											
+											
+											
 									</div><!-- /.widget-body -->
 								</div><!-- /.login-box -->
 							</div><!-- /.position-relative -->
@@ -85,61 +78,11 @@
 
 		<!-- basic scripts -->
 
-		
+		<script src="aceadmin/components/jquery/dist/jquery.js"></script>
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
-		//登录操作
-	    $('#login').click(function(){
-	        var username = $('.username').val();
-	        var password = $('.password').val();
-	        if(username == '') {
-	            $('.error').fadeOut('fast', function(){
-	                $('.error').css('top', '27px').show();
-	            });
-	            $('.error').fadeIn('fast', function(){
-	                $('.username').focus();
-	            });
-	            return false;
-	        }
-	        if(password == '') {
-	            $('.error').fadeOut('fast', function(){
-	                $('.error').css('top', '96px').show();
-	            });
-	            $(this).find('.error').fadeIn('fast', function(){
-	                $('.password').focus();
-	            });
-	            return false;
-	        }
-	        var	data = {password:password,username:username,rememberMe:$("#rememberMe").is(':checked')};
-	        
-	        $.ajax({
-	        	url:"/login",
-	        	data:data,
-	        	type:"post",
-	        	dataType:"json",
-	        	beforeSend:function(){
-	        		alert('开始登录，请注意后台控制台。');
-	        	},
-	        	success:function(result){
-		    		if(result && result.status != 200){
-		    			alert(result.message);
-		    			$('.password').val('');
-		    			return;
-		    		}else{
-		    			alert('登录成功！');
-		    			setTimeout(function(){
-		    				//登录返回
-			    			window.location.href= "main";
-		    			},1000)
-		    		}
-	        	},
-	        	error:function(e){
-	        		console.log(e,e.message);
-	        		alert('请看后台Java控制台，是否报错，确定已经配置数据库和Redis');
-	        	}
-	        });
-	    });
+		
 			
 			
 		
