@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<body>
-Q:Why I like? <br>
-</body>
-
-</html>
+<#-- 引入布局指令的命名空间 -->
+<#import "../layout/defaultLayout.ftl" as defaultLayout>
+ 
+<#-- 调用布局指令 -->
+<@defaultLayout.layout>
+ 
+    <div style="width:70%; height:300px; float:left; background-color: #12c5ae;">
+           main content</div>
+ 
+</@defaultLayout.layout>

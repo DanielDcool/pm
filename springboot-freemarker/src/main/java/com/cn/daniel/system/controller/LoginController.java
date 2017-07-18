@@ -15,7 +15,7 @@ public class LoginController {
         @RequestParam(value = "logout", required = false) String logout) {
 
         if (error != null) {
-            model.addAttribute("msg", "Invalid username and password!");
+            model.addAttribute("msg", "用户名或者密码错误!");
         }
 
         if (logout != null) {
