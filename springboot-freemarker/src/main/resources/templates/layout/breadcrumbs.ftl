@@ -1,4 +1,4 @@
-<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+<!-- <div class="breadcrumbs ace-save-state" id="breadcrumbs">
 	<ul class="breadcrumb">
 		<li><i class="ace-icon fa fa-home home-icon"></i> <a href="#">Home</a>
 		</li>
@@ -6,9 +6,9 @@
 		<li><a href="#">Other Pages</a></li>
 		<li class="active">Blank Page</li>
 	</ul>
-	<!-- /.breadcrumb -->
+	/.breadcrumb
 
-	<!-- #section:basics/content.searchbox -->
+	#section:basics/content.searchbox
 	<div class="nav-search" id="nav-search">
 		<form class="form-search">
 			<span class="input-icon"> <input type="text"
@@ -18,7 +18,7 @@
 			</span>
 		</form>
 	</div>
-	<!-- /.nav-search -->
+	/.nav-search
 
-	<!-- /section:basics/content.searchbox -->
-</div>
+	/section:basics/content.searchbox
+</div> -->

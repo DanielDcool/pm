@@ -42,7 +42,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.anyRequest().authenticated() // 任何请求,登录后可以访问
 				.and().formLogin().loginPage("/login").failureUrl("/login?error").permitAll() // 登录页面用户任意访问
 				.successHandler(loginSuccessHandler()) //使用自定义的SuccessHandler 进行一些登录成功后的操作
-				.and().logout().permitAll() // 注销行为任意访问
+				.and().logout().permitAll()// 注销行为任意访问
+				.and().headers().frameOptions().disable() //允许使用iframe
 				.and().csrf().disable(); // 禁用csrf
 	}
 }

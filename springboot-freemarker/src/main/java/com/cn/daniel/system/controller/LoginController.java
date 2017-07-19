@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController {
 
-    //Spring Security see this :
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model,
         @RequestParam(value = "error", required = false) String error,

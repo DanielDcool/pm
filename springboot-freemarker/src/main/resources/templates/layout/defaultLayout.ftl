@@ -37,11 +37,11 @@
 					<!-- /.page-header -->
 
 					<div class="row">
-						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
+						
 							<#nested>
+						
 							<!-- PAGE CONTENT ENDS -->
-						</div>
 						<!-- /.col -->
 					</div>
 					<!-- /.row -->
