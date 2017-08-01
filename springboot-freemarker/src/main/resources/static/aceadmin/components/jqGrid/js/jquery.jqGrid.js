@@ -126,7 +126,7 @@ $.extend($.jgrid,{
 		if(date && date != null) {
 			if( !isNaN( date - 0 ) && String(format).toLowerCase() === "u") {
 				//Unix timestamp
-				timestamp = new Date( parseFloat(date)*1000 );
+				timestamp = new Date( parseFloat(date) );
 			} else if(date.constructor === Date) {
 				timestamp = date;
 				// Microsoft date format support

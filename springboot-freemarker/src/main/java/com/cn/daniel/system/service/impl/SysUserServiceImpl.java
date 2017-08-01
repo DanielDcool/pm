@@ -13,7 +13,7 @@ import com.cn.daniel.system.dao.SysUserDao;
 import com.cn.daniel.system.domain.SysRole;
 import com.cn.daniel.system.domain.SysUser;
 
-public class SysUserService implements UserDetailsService {
+public class SysUserServiceImpl implements UserDetailsService {
 	 @Autowired
 	 SysUserDao userDao;
 	 

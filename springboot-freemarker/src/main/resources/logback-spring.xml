@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration><!--debug="true" scan="true" scanPeriod="30 seconds"-->
+
+   <springProperty scope="context" name="logLevel" source="log.level"/>
+
+   <springProperty scope="context" name="logPath" source="log.path"/>
+
+   <contextName>rc-api</contextName>
+
+ 
+
+   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+
+      <encoder>
+
+         <pattern>%d{yyyy-MM-ddHH:mm:ss} [%level] [%class:%line] - %m %n</pattern>
+
+         <charset>utf-8</charset>
+
+      </encoder>
+
+      <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+
+         <level>DEBUG</level>
+
+      </filter>
+
+   </appender>
+
+ 
+
+   <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+      <file>${logPath}/log_info.log</file>
+
+      <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+
+         <fileNamePattern>${logPath}/info/log-info-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+
+         <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+
+            <maxFileSize>100MB</maxFileSize>
+
+         </timeBasedFileNamingAndTriggeringPolicy>
+
+      </rollingPolicy>
+
+      <append>true</append>
+
+      <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+
+         <pattern>%d{yyyy-MM-ddHH:mm:ss.SSS} %-5level %logger Line:%-3L - %msg%n</pattern>
+
+         <charset>utf-8</charset>
+
+      </encoder>
+
+      <filter class="ch.qos.logback.classic.filter.LevelFilter">
+
+         <level>INFO</level>
+
+         <onMatch>ACCEPT</onMatch>
+
+         <onMismatch>DENY</onMismatch>
+
+      </filter>
+
+   </appender>
+
+  
+
+   <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+      <file>${logPath}/log_error.log</file>
+
+      <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+
+         <fileNamePattern>${logPath}/error/log-error-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+
+         <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+
+            <maxFileSize>100MB</maxFileSize>
+
+         </timeBasedFileNamingAndTriggeringPolicy>
+
+      </rollingPolicy>
+
+      <append>true</append>
+
+      <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+
+         <pattern>%d{yyyy-MM-ddHH:mm:ss.SSS} %-5level %logger Line:%-3L - %msg%n</pattern>
+
+         <charset>utf-8</charset>
+
+      </encoder>
+
+      <filter class="ch.qos.logback.classic.filter.LevelFilter">
+
+         <level>ERROR</level>
+
+         <onMatch>ACCEPT</onMatch>
+
+         <onMismatch>DENY</onMismatch>
+
+      </filter>
+
+   </appender>
+
+  
+
+   <appender name="SQL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+      <file>${logPath}/log_sql.log</file>
+
+      <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+
+         <fileNamePattern>${logPath}/sql/log-sql-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+
+         <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+
+            <maxFileSize>100MB</maxFileSize>
+
+         </timeBasedFileNamingAndTriggeringPolicy>
+
+      </rollingPolicy>
+
+      <append>true</append>
+
+      <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+
+         <pattern>%d{yyyy-MM-ddHH:mm:ss.SSS} %-5level %logger Line:%-3L - %msg%n</pattern>
+
+         <charset>utf-8</charset>
+
+      </encoder>
+
+   </appender>
+
+  
+
+   <logger name="dao"  level="DEBUG"> 
+
+       <appender-ref ref="SQL"/> 
+
+   </logger>
+
+    
+
+   <root level="${logLevel}">
+
+      <appender-ref ref="STDOUT"/>
+
+      <appender-ref ref="INFO"/>
+
+      <appender-ref ref="ERROR"/>
+
+   </root>
+
+</configuration>

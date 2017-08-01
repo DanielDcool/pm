@@ -11,6 +11,8 @@
 						<div class="tab-content">
 							<div role="tabpanel" class="tab-pane active" id="Index">
 								欢迎使用EasyAdmin
+								
+								${employeeInfoList }
 							</div>
 						</div>
 					</div>			

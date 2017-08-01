@@ -1,7 +1,7 @@
 package com.cn.daniel.system.config.security;
 
 import com.cn.daniel.system.config.security.support.LoginSuccessHandler;
-import com.cn.daniel.system.service.impl.SysUserService;
+import com.cn.daniel.system.service.impl.SysUserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -22,7 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	UserDetailsService sysUserService() { // 注册UserDetailsService 的bean
-		return new SysUserService();
+		return new SysUserServiceImpl();
 	}
 
 	@Bean

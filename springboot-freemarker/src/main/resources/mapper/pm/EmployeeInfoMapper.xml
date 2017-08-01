@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.daniel.pm.dao.EmployeeInfoDao">
+  <resultMap id="BaseResultMap" type="com.cn.daniel.pm.domain.EmployeeInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="employmentDate" jdbcType="DATE" property="employmentDate" />
+    <result column="separationDate" jdbcType="DATE" property="separationDate" />
+    <result column="regularDate" jdbcType="DATE" property="regularDate" />
+    <result column="department" jdbcType="VARCHAR" property="department" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="graduateSchool" jdbcType="VARCHAR" property="graduateSchool" />
+    <result column="education" jdbcType="VARCHAR" property="education" />
+    <result column="major" jdbcType="VARCHAR" property="major" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="identity" jdbcType="VARCHAR" property="identity" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="ontractStartDate" jdbcType="DATE" property="ontractStartDate" />
+    <result column="ontractEndDate" jdbcType="DATE" property="ontractEndDate" />
+    <result column="salary" jdbcType="DOUBLE" property="salary" />
+     <result column="gender" jdbcType="INTEGER" property="gender" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, employmentDate, separationDate, regularDate, department, position, birthday, 
+    graduateSchool, education, major, address, identity, mobile, ontractStartDate, ontractEndDate,salary,gender
+  </sql>
+   <select id="selectAll"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from employeeinfo where 1=1
+    <if test="id!=null and id!='' and id !='null'">
+          and id=#{id,jdbcType=INTEGER}
+    </if>
+    <if test="name!=null">
+          and name like concat(concat('%',#{name}),'%')
+    </if>
+    <if test="department!=null">
+          and department like concat(concat('%',#{department}),'%')
+    </if>
+    <if test="position!=null">
+          and position like concat(concat('%',#{position}),'%')
+    </if>
+   <!--   <if test="sord!=null">
+        order by #{orderby}
+    </if>
+    <if test="sord==null">
+        order by id
+    </if>
+     <if test="sidx!=null">
+          #{sidx}
+    </if> -->
+  </select>
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from employeeinfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from employeeinfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cn.daniel.pm.domain.EmployeeInfo">
+    insert into employeeinfo (id, name, employmentDate, 
+      separationDate, regularDate, department, 
+      position, birthday, graduateSchool, 
+      education, major, address, 
+      identity, mobile, ontractStartDate, 
+      ontractEndDate,salary,gender)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{employmentdate,jdbcType=DATE}, 
+      #{separationdate,jdbcType=DATE}, #{regulardate,jdbcType=DATE}, #{department,jdbcType=VARCHAR}, 
+      #{position,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, #{graduateschool,jdbcType=VARCHAR}, 
+      #{education,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{identity,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{ontractstartdate,jdbcType=DATE}, 
+      #{ontractenddate,jdbcType=DATE},#{salary,jdbcType=DOUBLE},#{gender,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.daniel.pm.domain.EmployeeInfo">
+    insert into employeeinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="employmentdate != null">
+        employmentDate,
+      </if>
+      <if test="separationdate != null">
+        separationDate,
+      </if>
+      <if test="regulardate != null">
+        regularDate,
+      </if>
+      <if test="department != null">
+        department,
+      </if>
+      <if test="position != null">
+        position,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="graduateschool != null">
+        graduateSchool,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="major != null">
+        major,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="identity != null">
+        identity,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="ontractstartdate != null">
+        ontractStartDate,
+      </if>
+      <if test="ontractenddate != null">
+        ontractEndDate,
+      </if>
+      <if test="salary != null">
+        salary,
+      </if>
+       <if test="gender != null">
+        gender,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="employmentdate != null">
+        #{employmentdate,jdbcType=DATE},
+      </if>
+      <if test="separationdate != null">
+        #{separationdate,jdbcType=DATE},
+      </if>
+      <if test="regulardate != null">
+        #{regulardate,jdbcType=DATE},
+      </if>
+      <if test="department != null">
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="graduateschool != null">
+        #{graduateschool,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null">
+        #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="identity != null">
+        #{identity,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="ontractstartdate != null">
+        #{ontractstartdate,jdbcType=DATE},
+      </if>
+      <if test="ontractenddate != null">
+        #{ontractenddate,jdbcType=DATE},
+      </if>
+      <if test="salary != null">
+        #{salary,jdbcType=DOUBLE},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.daniel.pm.domain.EmployeeInfo">
+    update employeeinfo
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="employmentdate != null">
+        employmentDate = #{employmentdate,jdbcType=DATE},
+      </if>
+      <if test="separationdate != null">
+        separationDate = #{separationdate,jdbcType=DATE},
+      </if>
+      <if test="regulardate != null">
+        regularDate = #{regulardate,jdbcType=DATE},
+      </if>
+      <if test="department != null">
+        department = #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        position = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="graduateschool != null">
+        graduateSchool = #{graduateschool,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null">
+        major = #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="identity != null">
+        identity = #{identity,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="ontractstartdate != null">
+        ontractStartDate = #{ontractstartdate,jdbcType=DATE},
+      </if>
+      <if test="ontractenddate != null">
+        ontractEndDate = #{ontractenddate,jdbcType=DATE},
+      </if>
+      <if test="salary != null">
+        salary = #{salary,jdbcType=DOUBLE},
+      </if>
+      <if test="gender != null">
+        salary = #{gender,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.daniel.pm.domain.EmployeeInfo">
+    update employeeinfo
+    set name = #{name,jdbcType=VARCHAR},
+      employmentDate = #{employmentdate,jdbcType=DATE},
+      separationDate = #{separationdate,jdbcType=DATE},
+      regularDate = #{regulardate,jdbcType=DATE},
+      department = #{department,jdbcType=VARCHAR},
+      position = #{position,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=DATE},
+      graduateSchool = #{graduateschool,jdbcType=VARCHAR},
+      education = #{education,jdbcType=VARCHAR},
+      major = #{major,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      identity = #{identity,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      ontractStartDate = #{ontractstartdate,jdbcType=DATE},
+      ontractEndDate = #{ontractenddate,jdbcType=DATE},
+      salary = #{salary,jdbcType=DOUBLE},
+      gender = #{gender,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+   <delete id="deleteByIds" parameterType="java.lang.String">
+        delete from employeeinfo where id in
+         <foreach item="idItem" collection="array" open="(" separator="," close=")">
+     #{idItem}
+    </foreach>
+    </delete>
+</mapper>

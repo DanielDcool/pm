@@ -38,6 +38,12 @@
 	<!-- /.sidebar-shortcuts -->
 
 	<ul class="nav nav-list">
+		<li ><a class="dropdown-toggle" href="javascript:addTabs({id:'1,title: '1',close: true,url:''})"> <i class="menu-icon fa "></i> <span class="menu-text">员工管理 </span><b class="fa fa-angle-down arrow"></b></a>
+                <ul class="submenu" style="display: block;" id="nav1">
+                	 <li ><a href="javascript:addTabs({id:'2',title: '2',close: true,url: '/pm/employeesPage'})"> <i class="menu-icon fa "></i> <span class="menu-text">员工信息 </span></a></li>
+                	 <li ><a href="javascript:addTabs({id:'3',title: '3',close: true,url: ''})"> <i class="menu-icon fa "></i> <span class="menu-text">员工信息 </span></a></li>
+               </ul>
+        </li>
 		<li class="">
 			<a href="#" class="dropdown-toggle"> 
 				<i class="menu-icon fa fa-desktop"></i> 
@@ -53,50 +59,6 @@
 					</a> 
 					<b class="arrow"></b>
 				</li>
-
-				<li class=""><a href="typography.html"> <i
-						class="menu-icon fa fa-caret-right"></i> Typography
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="elements.html"> <i
-						class="menu-icon fa fa-caret-right"></i> Elements
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="buttons.html"> <i
-						class="menu-icon fa fa-caret-right"></i> Buttons &amp; Icons
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="content-slider.html"> <i
-						class="menu-icon fa fa-caret-right"></i> Content Sliders
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="treeview.html"> <i
-						class="menu-icon fa fa-caret-right"></i> Treeview
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="jquery-ui.html"> <i
-						class="menu-icon fa fa-caret-right"></i> jQuery UI
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="nestable-list.html"> <i
-						class="menu-icon fa fa-caret-right"></i> Nestable Lists
-				</a> <b class="arrow"></b></li>
-			</ul>
-		</li>
-
-		<li class=""><a href="#" class="dropdown-toggle"> <i
-				class="menu-icon fa fa-list"></i> <span class="menu-text">
-					Tables </span> <b class="arrow fa fa-angle-down"></b>
-			</a> <b class="arrow"></b>
-
-			<ul class="submenu">
-				<li class=""><a href="tables.html"> <i
-						class="menu-icon fa fa-caret-right"></i> Simple &amp; Dynamic
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="jqgrid.html"> <i
-						class="menu-icon fa fa-caret-right"></i> jqGrid plugin
-				</a> <b class="arrow"></b></li>
 			</ul>
 		</li>
 	</ul>
