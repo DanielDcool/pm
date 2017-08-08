@@ -30,7 +30,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	
+
 	//freemaker自定义
 	@Bean
 	public CommandLineRunner customFreemarker(final FreeMarkerViewResolver resolver) {
@@ -44,7 +44,7 @@ public class Application {
 			}
 		};
 	}
-	
+
 	//自定义错误页面
 	@Bean
 	public EmbeddedServletContainerCustomizer containerCustomizer() {

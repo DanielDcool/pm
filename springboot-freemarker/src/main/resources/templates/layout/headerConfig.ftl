@@ -32,3 +32,5 @@
 		<!-- ace settings handler -->
 		<script src="${base }/aceadmin/assets/js/ace-extra.js"></script>
         <script src="${base }/aceadmin/components/jquery/dist/jquery.js"></script>
+
+

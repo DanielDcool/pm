@@ -25,7 +25,6 @@ public class SysUserServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException("用户名不存在");
         }
         List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
-        //用于添加用户的权限。只要把用户权限添加到authorities 就万事大吉。
         for(SysRole role:user.getRoles())
         {
             authorities.add(new SimpleGrantedAuthority(role.getName()));

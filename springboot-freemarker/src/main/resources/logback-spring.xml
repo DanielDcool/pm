@@ -140,7 +140,7 @@
 
   
 
-   <logger name="dao"  level="DEBUG"> 
+   <logger name="dao"  level="INFO">
 
        <appender-ref ref="SQL"/> 
 

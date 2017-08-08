@@ -18,4 +18,8 @@ public interface EmployeeInfoService {
 	void deleteById(Integer id);
 
 	void deleteByIds(String[] ids);
+
+    void saveEmployeeInfo(EmployeeInfo info);
+
+    void updateEmployeeInfo(EmployeeInfo info);
 }

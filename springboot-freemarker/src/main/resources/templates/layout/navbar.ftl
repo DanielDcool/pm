@@ -37,7 +37,7 @@
 								<span class="badge badge-grey">4</span>
 							</a>
 
-							<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+							<#--<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
 								<li class="dropdown-header">
 									<i class="ace-icon fa fa-check"></i>
 									4 Tasks to complete
@@ -105,7 +105,7 @@
 										<i class="ace-icon fa fa-arrow-right"></i>
 									</a>
 								</li>
-							</ul>
+							</ul>-->
 						</li>
 
 						<li class="purple dropdown-modal">
@@ -114,7 +114,7 @@
 								<span class="badge badge-important">8</span>
 							</a>
 
-							<ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+							<#--<ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
 								<li class="dropdown-header">
 									<i class="ace-icon fa fa-exclamation-triangle"></i>
 									8 Notifications
@@ -173,7 +173,7 @@
 										<i class="ace-icon fa fa-arrow-right"></i>
 									</a>
 								</li>
-							</ul>
+							</ul>-->
 						</li>
 
 						<li class="green dropdown-modal">
@@ -182,7 +182,7 @@
 								<span class="badge badge-success">5</span>
 							</a>
 
-							<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+							<#--<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
 								<li class="dropdown-header">
 									<i class="ace-icon fa fa-envelope-o"></i>
 									5 Messages
@@ -283,16 +283,16 @@
 										<i class="ace-icon fa fa-arrow-right"></i>
 									</a>
 								</li>
-							</ul>
+							</ul>-->
 						</li>
 
 						<!-- #section:basics/navbar.user_menu -->
 						<li class="light-blue dropdown-modal">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="aceadmin/assets/avatars/user.jpg" alt="Jason's Photo" />
+								<img class="nav-user-photo" src="aceadmin/assets/avatars/user.jpg" alt="s Photo" />
 								<span class="user-info">
 									<small>Welcome,</small>
-									Jason
+								${Session["SPRING_SECURITY_CONTEXT"].authentication.name}
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>

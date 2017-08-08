@@ -29,7 +29,7 @@
 
 				<div class="page-content">
 					<!-- #.ace-settings-container -->
-					<#include "settingsContainer.ftl">
+					<#--<#include "settingsContainer.ftl">-->
 					<!-- /.ace-settings-container -->
 
 					<!-- #.page-header -->

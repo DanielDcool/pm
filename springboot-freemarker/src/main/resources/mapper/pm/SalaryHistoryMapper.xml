@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.daniel.pm.dao.SalaryHistoryDao">
+  <resultMap id="salaryMap" type="com.cn.daniel.pm.domain.SalaryHistory">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="eid" jdbcType="INTEGER" property="eid" />
+    <result column="ename" jdbcType="VARCHAR" property="ename" />
+    <result column="salary" jdbcType="DOUBLE" property="salary" />
+    <result column="enable_date" jdbcType="DATE" property="enableDate" />
+    <result column="disable_date" jdbcType="DATE" property="disableDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, eid, ename, salary, enable_date, disable_date
+  </sql>
+  <select id="selectAllByEid"  resultMap="salaryMap">
+  select
+  <include refid="Base_Column_List" />
+  from salary_history where 1=1
+    <if test="eid!=null and eid!='' and eid !='null'">
+      and eid=#{eid,jdbcType=INTEGER}
+    </if>
+  order by enable_date
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="salaryMap">
+    select
+    <include refid="Base_Column_List" />
+    from salary_history
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from salary_history
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cn.daniel.pm.domain.SalaryHistory">
+    insert into salary_history (id, eid, ename, 
+      salary, enable_date, disable_date
+      )
+    values (#{id,jdbcType=INTEGER}, #{eid,jdbcType=INTEGER}, #{ename,jdbcType=VARCHAR}, 
+      #{salary,jdbcType=DOUBLE}, #{enableDate,jdbcType=DATE}, #{disableDate,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.daniel.pm.domain.SalaryHistory">
+    insert into salary_history
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="eid != null">
+        eid,
+      </if>
+      <if test="ename != null">
+        ename,
+      </if>
+      <if test="salary != null">
+        salary,
+      </if>
+      <if test="enableDate != null">
+        enable_date,
+      </if>
+      <if test="disableDate != null">
+        disable_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="eid != null">
+        #{eid,jdbcType=INTEGER},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null">
+        #{salary,jdbcType=DOUBLE},
+      </if>
+      <if test="enableDate != null">
+        #{enableDate,jdbcType=DATE},
+      </if>
+      <if test="disableDate != null">
+        #{disableDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.daniel.pm.domain.SalaryHistory">
+    update salary_history
+    <set>
+      <if test="eid != null">
+        eid = #{eid,jdbcType=INTEGER},
+      </if>
+      <if test="ename != null">
+        ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null">
+        salary = #{salary,jdbcType=DOUBLE},
+      </if>
+      <if test="enableDate != null">
+        enable_date = #{enableDate,jdbcType=DATE},
+      </if>
+      <if test="disableDate != null">
+        disable_date = #{disableDate,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.daniel.pm.domain.SalaryHistory">
+    update salary_history
+    set eid = #{eid,jdbcType=INTEGER},
+      ename = #{ename,jdbcType=VARCHAR},
+      salary = #{salary,jdbcType=DOUBLE},
+      enable_date = #{enableDate,jdbcType=DATE},
+      disable_date = #{disableDate,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+</mapper>

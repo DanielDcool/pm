@@ -1,8 +1,11 @@
 package com.cn.daniel.pm.service.impl;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.cn.daniel.pm.dao.SalaryHistoryDao;
+import com.cn.daniel.pm.domain.SalaryHistory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -17,7 +20,28 @@ import com.github.pagehelper.PageInfo;
 public class EmployeeInfoServiceImpl implements EmployeeInfoService{
 	@Autowired
 	EmployeeInfoDao employeeInfoDao;
-	
+
+	@Autowired
+	SalaryHistoryDao salaryHistoryDao;
+
+	@Override
+	public void saveEmployeeInfo(EmployeeInfo info) {
+		employeeInfoDao.insertSelective(info);
+		if (info.getSalary()!=null) {
+			salaryHistoryDao.insert(new SalaryHistory(info.getId(), info.getName(), info.getSalary(), new Date()));
+		}
+	}
+
+	@Override
+	public void updateEmployeeInfo(EmployeeInfo info) {
+		EmployeeInfo formerInfo=getEmployeeInfoById(info.getId());
+		Double formerSalary = formerInfo.getSalary();
+		employeeInfoDao.updateByPrimaryKeySelective(info);
+		if (info.getSalary()!=null&& !info.getSalary().equals(formerSalary)) {
+			salaryHistoryDao.insert(new SalaryHistory(info.getId(), info.getName(), info.getSalary(), new Date()));
+		}
+	}
+
 	@Override
 	public EmployeeInfo getEmployeeInfoById(Integer id) {
 		return employeeInfoDao.selectByPrimaryKey(id);
@@ -34,7 +58,7 @@ public class EmployeeInfoServiceImpl implements EmployeeInfoService{
 		if (!StringUtils.isEmpty(page.getSidx())) {
 			PageHelper.orderBy(page.getSidx()+" "+page.getSord());
 		}
-		return new PageInfo<EmployeeInfo>(employeeInfoDao.selectAll(conditions));
+		return new PageInfo<>(employeeInfoDao.selectAll(conditions));
 	}
 
 	@Override
