@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Class-Path: mybatis-spring-1.3.1.jar log4j-over-slf4j-1.7.22.jar class
+ mate-1.3.3.jar spring-security-core-4.2.1.RELEASE.jar spring-boot-1.5
+ .1.RELEASE.jar fastjson-1.2.15.jar spring-security-web-4.2.1.RELEASE.
+ jar jackson-annotations-2.8.0.jar mysql-connector-java-5.1.39.jar tom
+ cat-juli-8.5.11.jar jcl-over-slf4j-1.7.22.jar spring-boot-autoconfigu
+ re-1.5.1.RELEASE.jar spring-security-acl-4.2.1.RELEASE.jar jackson-co
+ re-2.8.6.jar mybatis-3.4.2.jar spring-boot-starter-logging-1.5.1.RELE
+ ASE.jar spring-core-4.3.6.RELEASE.jar tomcat-embed-core-8.5.11.jar ao
+ palliance-1.0.jar jboss-logging-3.3.0.Final.jar slf4j-api-1.7.22.jar 
+ spring-security-taglibs-4.2.1.RELEASE.jar spring-context-4.3.6.RELEAS
+ E.jar validation-api-1.1.0.Final.jar hamcrest-core-1.3.jar spring-sec
+ urity-config-4.2.1.RELEASE.jar mybatis-spring-boot-starter-1.2.0.jar 
+ junit-4.12.jar tomcat-embed-websocket-8.5.11.jar hibernate-validator-
+ 5.3.4.Final.jar tomcat-jdbc-8.5.11.jar logback-core-1.1.9.jar jackson
+ -databind-2.8.6.jar spring-aop-4.3.6.RELEASE.jar mybatis-spring-boot-
+ autoconfigure-1.2.0.jar logback-classic-1.1.9.jar spring-boot-starter
+ -freemarker-1.5.1.RELEASE.jar spring-tx-4.3.6.RELEASE.jar tomcat-embe
+ d-el-8.5.11.jar spring-beans-4.3.6.RELEASE.jar freemarker-2.3.25-incu
+ bating.jar spring-expression-4.3.6.RELEASE.jar spring-web-4.3.6.RELEA
+ SE.jar spring-context-support-4.3.6.RELEASE.jar commons-lang-2.6.jar 
+ pagehelper-4.1.1.jar jsqlparser-0.9.4.jar jul-to-slf4j-1.7.22.jar sna
+ keyaml-1.17.jar spring-jdbc-4.3.6.RELEASE.jar spring-boot-starter-1.5
+ .1.RELEASE.jar spring-boot-starter-security-1.5.1.RELEASE.jar spring-
+ boot-starter-tomcat-1.5.1.RELEASE.jar spring-boot-starter-web-1.5.1.R
+ ELEASE.jar spring-boot-starter-jdbc-1.5.1.RELEASE.jar spring-webmvc-4
+ .3.6.RELEASE.jar
+Main-Class: com.cn.daniel.Application
+
